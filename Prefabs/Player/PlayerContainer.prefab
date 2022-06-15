@@ -1,0 +1,670 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4136168193937163981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4136168193937163982}
+  - component: {fileID: 4136168193937163983}
+  - component: {fileID: 4136168193937164020}
+  - component: {fileID: 4136168193937164019}
+  - component: {fileID: 4136168193937164017}
+  - component: {fileID: 6246113914326896826}
+  - component: {fileID: 6246113914326896825}
+  - component: {fileID: 2947639756076934923}
+  - component: {fileID: 3880386573212959025}
+  m_Layer: 8
+  m_Name: PlayerContainer
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4136168193937163982
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4136168193937163981}
+  m_LocalRotation: {x: -0, y: 0.032450654, z: -0, w: 0.9994734}
+  m_LocalPosition: {x: 4.76, y: 5.4, z: 6.29}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4136168193054024026}
+  - {fileID: 4136168194346063019}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 3.719, z: 0}
+--- !u!54 &4136168193937163983
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4136168193937163981}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 112
+  m_CollisionDetection: 3
+--- !u!114 &4136168193937164020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4136168193937163981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fcc26a05e4dec64e9c05682404e73a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 7
+  airSpeed: 50
+  sprintSpeed: 10
+  slideSpeed: 30
+  wallrunSpeed: 8.5
+  speedIncreaseMultiplier: 1.5
+  slopeIncreaseMultiplier: 2.5
+  groundDrag: 4
+  jumpForce: 12
+  jumpCooldown: 0.25
+  airMultiplier: 0.4
+  crouchSpeed: 3.5
+  crouchYScale: 0.5
+  jumpKey: 32
+  sprintKey: 304
+  crouchKey: 306
+  playerHeight: 2
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 72
+  maxSlopeAngle: 40
+  playerOrientation: {fileID: 67919034800404723, guid: 5c52d245ec505f14ab94d1844f9a3497,
+    type: 3}
+  gunScript: {fileID: 0}
+  playerDamage: 5
+  gunPick: {fileID: 6246113914326896825}
+  PistolGunAudioSource: {fileID: 0}
+  ShootGunAudioSource: {fileID: 0}
+  MachineGunAudioSource: {fileID: 0}
+  isPlayerKilled: 0
+  health: 200
+  playerCamAnimator: {fileID: 1666909530219529805, guid: 50605e3ab4f78e740928c1e8d13b53cd,
+    type: 3}
+  pauseMenu: {fileID: 0}
+  healthBar: {fileID: 0}
+  playerCameraTransform: {fileID: 0}
+  state: 0
+  isPlayerSliding: 0
+  crouching: 0
+  wallrunning: 0
+--- !u!114 &4136168193937164019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4136168193937163981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfde8b949b20c344dbd4511bd5be7775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatIsWall:
+    serializedVersion: 2
+    m_Bits: 64
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 8
+  wallRunForce: 200
+  wallJumpUpForce: 7
+  wallJumpSideForce: 14
+  wallClimbSpeed: 1.5
+  maxWallRunTime: 4
+  jumpKey: 32
+  upwardsRunKey: 304
+  downwardsRunKey: 306
+  wallCheckDistance: 0.7
+  minJumpHeight: 2
+  exitWallTime: 0.2
+  useGravity: 1
+  gravityCounterForce: 20
+  playerOrientation: {fileID: 67919034800404723, guid: 5c52d245ec505f14ab94d1844f9a3497,
+    type: 3}
+  playerCamera: {fileID: 8749246302047730187, guid: 184546b424efab14d87f74985fa4ba2c,
+    type: 3}
+--- !u!114 &4136168193937164017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4136168193937163981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b457637b1af64a46b05c916fd781d06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerOrientation: {fileID: 67919034800404723, guid: 5c52d245ec505f14ab94d1844f9a3497,
+    type: 3}
+  playerObject: {fileID: 9003917030205398357, guid: 524c6244872a86e47ba71ecd97165f84,
+    type: 3}
+  maxSlideTime: 2
+  slideForce: 200
+  slideYScale: 0.5
+  slideKey: 306
+--- !u!136 &6246113914326896826
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4136168193937163981}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6246113914326896825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4136168193937163981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 532649843a0487e4983998fa55c330bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunPosition: {fileID: 8953183434749698660, guid: 9f6d85b33dcd50248b20b6fe37581b10,
+    type: 3}
+  distance: 10
+  playerCamera: {fileID: 8749246302047730191, guid: 184546b424efab14d87f74985fa4ba2c,
+    type: 3}
+  playerMovementAdvanced: {fileID: 4136168193937164020}
+  currentGun: {fileID: 0}
+  IsPlayerPickedGun: 0
+--- !u!114 &2947639756076934923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4136168193937163981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1384774831, guid: e743331561ef77147ae48cda9bcb8209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fsm:
+    dataVersion: 2
+    usedInTemplate: {fileID: 0}
+    name: FSM
+    startState: Idle
+    states:
+    - name: Idle
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 66
+        y: 100
+        width: 100
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: Fire
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Fire
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.GetAnimatorBool
+        - HutongGames.PlayMaker.Actions.BoolTest
+        customNames:
+        - 
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000005000000
+        actionHashCodes: 5f913504a4c8bf00
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 1262341484413933985, guid: a65cce8e36356be429fa5bd855c6e0ec,
+              type: 3}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: isShooting
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: isShooting
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: isShooting
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - Fire
+        - Idle
+        byteData: 000000000000
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 140000001200000011000000010000000700000011000000170000001700000001000000
+        paramName:
+        - gameObject
+        - parameter
+        - result
+        - everyFrame
+        - everyFrameOption
+        - boolVariable
+        - isTrue
+        - isFalse
+        - everyFrame
+        paramDataPos: 000000000000000000000000000000000100000001000000000000000100000005000000
+        paramByteDataSize: 000000000000000000000000010000000400000000000000000000000000000001000000
+    - name: Fire
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 60.929688
+        y: 214.39844
+        width: 100
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: Idle
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Idle
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.GetAnimatorBool
+        - HutongGames.PlayMaker.Actions.BoolTest
+        customNames:
+        - 
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000005000000
+        actionHashCodes: 5f913504a4c8bf00
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 1262341484413933985, guid: a65cce8e36356be429fa5bd855c6e0ec,
+              type: 3}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: isShooting
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: isShooting
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: isShooting
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - Fire
+        - Idle
+        byteData: 000000000000
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 140000001200000011000000010000000700000011000000170000001700000001000000
+        paramName:
+        - gameObject
+        - parameter
+        - result
+        - everyFrame
+        - everyFrameOption
+        - boolVariable
+        - isTrue
+        - isFalse
+        - everyFrame
+        paramDataPos: 000000000000000000000000000000000100000001000000000000000100000005000000
+        paramByteDataSize: 000000000000000000000000010000000400000000000000000000000000000001000000
+    events:
+    - name: FINISHED
+      isSystemEvent: 1
+      isGlobal: 0
+    - name: Fire
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: Idle
+      isSystemEvent: 0
+      isGlobal: 0
+    globalTransitions: []
+    variables:
+      floatVariables: []
+      intVariables: []
+      boolVariables:
+      - useVariable: 1
+        name: isShooting
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
+      stringVariables: []
+      vector2Variables: []
+      vector3Variables: []
+      colorVariables: []
+      rectVariables: []
+      quaternionVariables: []
+      gameObjectVariables: []
+      objectVariables: []
+      materialVariables: []
+      textureVariables: []
+      arrayVariables: []
+      enumVariables: []
+      categories:
+      - 
+      variableCategoryIDs: 00000000
+    description: 
+    docUrl: 
+    showStateLabel: 0
+    maxLoopCount: 0
+    watermark: 
+    password: 
+    locked: 0
+    manualUpdate: 0
+    keepDelayedEventsOnStateExit: 0
+    preprocessed: 0
+    ExposedEvents: []
+    RestartOnEnable: 1
+    EnableDebugFlow: 0
+    EnableBreakpoints: 1
+    editorFlags: 1
+    activeStateName: 
+    mouseEvents: 0
+    handleLevelLoaded: 0
+    handleTriggerEnter2D: 0
+    handleTriggerExit2D: 0
+    handleTriggerStay2D: 0
+    handleCollisionEnter2D: 0
+    handleCollisionExit2D: 0
+    handleCollisionStay2D: 0
+    handleTriggerEnter: 0
+    handleTriggerExit: 0
+    handleTriggerStay: 0
+    handleCollisionEnter: 0
+    handleCollisionExit: 0
+    handleCollisionStay: 0
+    handleParticleCollision: 0
+    handleControllerColliderHit: 0
+    handleJointBreak: 0
+    handleJointBreak2D: 0
+    handleOnGUI: 0
+    handleFixedUpdate: 0
+    handleLateUpdate: 0
+    handleApplicationEvents: 0
+    handleUiEvents: 0
+    handleLegacyNetworking: 0
+    handleAnimatorMove: 0
+    handleAnimatorIK: 0
+  fsmTemplate: {fileID: 0}
+  eventHandlerComponentsAdded: 0
+--- !u!95 &3880386573212959025
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4136168193937163981}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &4150017640431610968
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4136168193937163982}
+    m_Modifications:
+    - target: {fileID: 67919034800404722, guid: 5c52d245ec505f14ab94d1844f9a3497,
+        type: 3}
+      propertyPath: m_Name
+      value: Orientation
+      objectReference: {fileID: 0}
+    - target: {fileID: 67919034800404723, guid: 5c52d245ec505f14ab94d1844f9a3497,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 67919034800404723, guid: 5c52d245ec505f14ab94d1844f9a3497,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 67919034800404723, guid: 5c52d245ec505f14ab94d1844f9a3497,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 67919034800404723, guid: 5c52d245ec505f14ab94d1844f9a3497,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 67919034800404723, guid: 5c52d245ec505f14ab94d1844f9a3497,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 67919034800404723, guid: 5c52d245ec505f14ab94d1844f9a3497,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 67919034800404723, guid: 5c52d245ec505f14ab94d1844f9a3497,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 67919034800404723, guid: 5c52d245ec505f14ab94d1844f9a3497,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 67919034800404723, guid: 5c52d245ec505f14ab94d1844f9a3497,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 67919034800404723, guid: 5c52d245ec505f14ab94d1844f9a3497,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 67919034800404723, guid: 5c52d245ec505f14ab94d1844f9a3497,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5c52d245ec505f14ab94d1844f9a3497, type: 3}
+--- !u!4 &4136168194346063019 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 67919034800404723, guid: 5c52d245ec505f14ab94d1844f9a3497,
+    type: 3}
+  m_PrefabInstance: {fileID: 4150017640431610968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5013291278360296463
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4136168193937163982}
+    m_Modifications:
+    - target: {fileID: 9003917030205398357, guid: 524c6244872a86e47ba71ecd97165f84,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003917030205398357, guid: 524c6244872a86e47ba71ecd97165f84,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003917030205398357, guid: 524c6244872a86e47ba71ecd97165f84,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003917030205398357, guid: 524c6244872a86e47ba71ecd97165f84,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003917030205398357, guid: 524c6244872a86e47ba71ecd97165f84,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003917030205398357, guid: 524c6244872a86e47ba71ecd97165f84,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003917030205398357, guid: 524c6244872a86e47ba71ecd97165f84,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003917030205398357, guid: 524c6244872a86e47ba71ecd97165f84,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003917030205398357, guid: 524c6244872a86e47ba71ecd97165f84,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003917030205398357, guid: 524c6244872a86e47ba71ecd97165f84,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003917030205398357, guid: 524c6244872a86e47ba71ecd97165f84,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003917030205398361, guid: 524c6244872a86e47ba71ecd97165f84,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 524c6244872a86e47ba71ecd97165f84, type: 3}
+--- !u!4 &4136168193054024026 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9003917030205398357, guid: 524c6244872a86e47ba71ecd97165f84,
+    type: 3}
+  m_PrefabInstance: {fileID: 5013291278360296463}
+  m_PrefabAsset: {fileID: 0}
